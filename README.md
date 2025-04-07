@@ -193,6 +193,7 @@ The following command just performs the simplest alignment of the nucleotide seq
 
 ``` bash
 nextalign run \
+  --in-order \
   --input-ref data/reference.fasta \
   --output-fasta results/aligned.fasta \
   results/subsampled_sequences.fasta
