@@ -270,7 +270,7 @@ less results/branch_lengths.json
 ```
 
 We now have enough information to export the initial time tree and its metadata for visualization in Auspice.
-This export step requires at least a Newick tree and a node data JSON file to produce an "Auspice JSON" file, another Nextstrain-specific file standard that represents a tree, its metadata, its node data, and details about how these data should all be visualized in Auspice.
+This export step requires at least a Newick tree and a node data JSON file to produce `nextstrain-walkthrough.json`, another Nextstrain-specific file standard that represents an Auspice dataset: the tree, its metadata, its node data, and details about how these data should all be visualized in Auspice.
 
 ``` bash
 mkdir -p auspice/
