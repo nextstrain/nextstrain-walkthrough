@@ -59,7 +59,7 @@ These topics are critical but outside the scope of a short workshop on genomic e
 By the end of this workshop, you will know how to:
 
   - identify the necessary input files to perform a genomic epidemiology analysis with Nextstrain
-  - run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextalign to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
+  - run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextclade to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
   - inspect and understand the contents of Nextstrain toolkit command outputs
   - visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using Auspice or [auspice.us](https://auspice.us)
 
@@ -213,12 +213,12 @@ augur filter \
 
 Next, we align the genome sequences of our subsampled data to a single reference genome.
 This alignment ensures that all genomes have the same coordinates during tree inference.
-Nextalign can produce both an alignment of the nucleotide sequences and amino acid alignments for all genes defined in a given gene map.
+Nextclade can produce both an alignment of the nucleotide sequences and amino acid alignments for all genes defined in a given gene map.
 It can also produce comma-separated values (CSV) outputs including insertions relative to the reference genome and error messages per input genome.
 The following command just performs the simplest alignment of the nucleotide sequences.
 
 ``` bash
-nextalign run \
+nextclade run \
   --in-order \
   --input-ref data/reference.fasta \
   --output-fasta results/aligned.fasta \
