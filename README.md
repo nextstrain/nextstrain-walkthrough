@@ -259,7 +259,7 @@ augur refine \
   --output-node-data results/branch_lengths.json
 ```
 
-This is the first part of the workflow that produces a "node data JSON" output file.
+This is the first step that produces a "node data JSON" output file.
 We will see more of these in subsequent steps.
 The node data JSON file is a Nextstrain-specific file standard that stores key/value attributes per node in the phylogenetic tree.
 Example attributes include clock-scale branch lengths, inferred collection dates, and inferred nucleotide sequences for ancestral nodes.
