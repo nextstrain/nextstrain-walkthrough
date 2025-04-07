@@ -4,13 +4,13 @@
 
 If you want to use a preconfigured environment, you only need to launch one of the following virtual machine providers.
 
-[![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/blab/veme-2022/HEAD)
-[![Open with Gitpod](https://img.shields.io/badge/Open%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/blab/veme-2022.git)
+[![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/veme-2022/HEAD)
+[![Open with Gitpod](https://img.shields.io/badge/Open%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/nextstrain/veme-2022.git)
 
 If you want to use your local environment on your personal computer, you will need to:
 
   - [Install Nextstrain](https://docs.nextstrain.org/en/latest/install.html) on your computer or launch one of the virtual machine providers listed above.
-  - Clone this repository with `git clone https://github.com/blab/veme-2022.git` and change into the resulting `veme-2022` directory.
+  - Clone this repository with `git clone https://github.com/nextstrain/veme-2022.git` and change into the resulting `veme-2022` directory.
 
 ## Scope
 
@@ -380,7 +380,7 @@ Then, you can view the trees by navigating to http://localhost:4000 or the corre
 
 > Note that while the following instructions describe a specific Nextstrain analysis, the same general steps will apply to any pathogen tree.
 
-See also, [the example SARS-CoV-2 tree produced by the analysis above](https://nextstrain.org/community/blab/veme-2022/example-ncov).
+See also, [the example SARS-CoV-2 tree produced by the analysis above](https://nextstrain.org/community/nextstrain/veme-2022/example-ncov).
 
 ### Review the Auspice layout
 
