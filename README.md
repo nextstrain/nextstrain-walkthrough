@@ -6,7 +6,6 @@ If you want to use a preconfigured environment, you only need to launch one of t
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextstrain/veme-2022)
 [![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/veme-2022/HEAD)
-[![Open with Gitpod](https://img.shields.io/badge/Open%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/nextstrain/veme-2022.git)
 
 If you want to use your local environment on your personal computer, you will need to:
 
@@ -370,13 +369,13 @@ augur export v2 \
 
 To visualize the final tree, we can drag its JSON file on to the [auspice.us](http://auspice.us) landing page. If you are working from a Binder interface, download the JSON file in the `auspice/` directory to your computer, open a file explorer/finder window, and drag the file on to the auspice.us interface.
 
-If you are working from a GitPod interface or have Auspice installed locally, you can run a local Auspice server with the following command.
+If you have Auspice installed locally, you can run a local Auspice server with the following command.
 
 ``` bash
 auspice view --datasetDir auspice/
 ```
 
-Then, you can view the trees by navigating to http://localhost:4000 or the corresponding address from GitPod.
+Then, you can view the trees by navigating to http://localhost:4000.
 
 ## Visualize and interpret a SARS-CoV-2 phylogeny
 
