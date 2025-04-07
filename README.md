@@ -231,16 +231,28 @@ Infer a divergence tree from the alignment.
 Augur's tree subcommand is a lightweight wrapper around existing tree builders, providing some standardization of the input alignment and output across tools.
 We use IQ-TREE by default, but other options include FastTree and RAxML.
 
+> Note: All tree builders used by Augur are maximum-likelihood (ML) tools, enabling the "real-time" part of Nextstrain’s mission at the expense of the posterior and more sophisticated models available through Bayesian methods.
+> The ML approach enables rapid prototyping to identify genomes to include in a more complex, longer-running Bayesian analysis.
+
 ``` bash
 augur tree \
   --alignment results/aligned.fasta \
   --output results/tree_raw.nwk
 ```
 
-We can view this tree and its metadata in [auspice.us](https://auspice.us/) or FigTree.
+We can view the divergence tree by loading `results/tree_raw.nwk` in [auspice.us](https://auspice.us/).
 
-> Note: All tree builders used by Augur are maximum-likelihood (ML) tools, enabling the "real-time" part of Nextstrain’s mission at the expense of the posterior and more sophisticated models available through Bayesian methods.
-> The ML approach enables rapid prototyping to identify genomes to include in a more complex, longer-running Bayesian analysis.
+You should see a view like this:
+
+![tree_raw.nwk in auspice.us](images/tree_raw.jpeg)
+
+Let's familiarize ourselves with the Auspice interface.
+The main view is an interactive phylogenetic tree.
+To the left are controls for the main view.
+There is not much going on with this particular visualization, because Newick files lack the additional data that powers most of the Auspice interface.
+We will add that in the next steps.
+
+<!-- NOTE: we could add metadata by drag/drop of the TSV file into the Auspice view of tree_raw.nwk, but we will soon show the proper way to expose metadata with `augur export`. -->
 
 ### Infer a time tree
 
@@ -281,6 +293,25 @@ augur export v2 \
   --color-by-metadata country \
   --output auspice/nextstrain-walkthrough.json
 ```
+
+> [!TIP] You can view Auspice datasets in auspice.us, but we will use a local Auspice server for the rest of this tutorial.
+
+We will view the tree using a local Auspice server.
+Open a new terminal and start the server using the command below.
+
+``` bash
+auspice view --datasetDir auspice/
+```
+
+Then, navigate to http://localhost:4000 and open the **nextstrain-walkthrough** dataset.
+You should see a view like this:
+
+![time tree in local Auspice server](images/tree_refined.jpeg)
+
+Note the differences from the Auspice view of `results/tree_raw.nwk`:
+
+- A time tree is shown. You can toggle between time and divergence in the control panel.
+- Location data has been added.
 
 We can learn a lot from the tree and its metadata, but we don’t have any details about mutations on the tree, ancestral states, distances between sequences, clades, frequencies of clades through time, etc.
 The next set of commands will produce these annotations on the tree in the format of additional node data JSONs.
@@ -393,15 +424,16 @@ augur export v2 \
   --output auspice/nextstrain-walkthrough.json
 ```
 
-To visualize the final tree, we can drag its JSON file on to the [auspice.us](https://auspice.us) landing page.
+View the tree with additional metadata in Auspice. It should look something like below.
 
-If you have Auspice installed locally, you can run a local Auspice server with the following command.
+![time tree with additional info in local Auspice server](images/tree_with_node_data.jpeg)
 
-``` bash
-auspice view --datasetDir auspice/
-```
+Note the differences from the previous Auspice dataset:
 
-Then, you can view the trees by navigating to http://localhost:4000.
+- Clade labels have been added.
+- Country has been inferred for internal nodes.
+- Hovering over tips and branches shows mutation information.
+- There are two new panels, **Map** and **Entropy**.
 
 ## Visualize and interpret a SARS-CoV-2 phylogeny
 
@@ -558,4 +590,9 @@ augur export v2 \
   --panels tree map entropy frequencies
 ```
 
-To visualize the final tree and frequencies, we can drag these files together onto the [auspice.us](https://auspice.us) landing page. You can also run `auspice view` locally to see the tree and frequencies.
+View the final tree with frequencies in Auspice.
+If you are using [auspice.us](https://auspice.us), drag both the `auspice/nextstrain-walkthrough.json` and `auspice/nextstrain-walkthrough_tip-frequencies.json` files onto the page.
+
+A new panel is available, **Frequencies**. Color by **Clade** to see the dominance of clades over time.
+
+![dataset with frequencies in local Auspice server](images/tree_with_frequencies.jpeg)
