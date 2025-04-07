@@ -279,7 +279,7 @@ augur export v2 \
   --node-data results/branch_lengths.json \
   --metadata results/subsampled_metadata.tsv \
   --color-by-metadata country \
-  --output auspice/ncov.json
+  --output auspice/nextstrain-walkthrough.json
 ```
 
 We can learn a lot from the tree and its metadata, but we don’t have any details about mutations on the tree, ancestral states, distances between sequences, clades, frequencies of clades through time, etc.
@@ -390,7 +390,7 @@ augur export v2 \
   --metadata results/subsampled_metadata.tsv \
   --color-by-metadata country \
   --geo-resolutions country \
-  --output auspice/ncov.json
+  --output auspice/nextstrain-walkthrough.json
 ```
 
 To visualize the final tree, we can drag its JSON file on to the [auspice.us](https://auspice.us) landing page.
@@ -537,7 +537,7 @@ augur frequencies \
   --pivot-interval-units weeks \
   --narrow-bandwidth 0.041 \
   --proportion-wide 0.0 \
-  --output auspice/ncov_tip-frequencies.json
+  --output auspice/nextstrain-walkthrough_tip-frequencies.json
 ```
 
 The output JSON file is an Auspice "[sidecar JSON](https://docs.nextstrain.org/en/latest/reference/data-formats.html)" that Auspice knows how to load for a given main Auspice JSON based on its filename.
@@ -554,7 +554,7 @@ augur export v2 \
   --metadata results/subsampled_metadata.tsv \
   --color-by-metadata country \
   --geo-resolutions country \
-  --output auspice/ncov.json \
+  --output auspice/nextstrain-walkthrough.json \
   --panels tree map entropy frequencies
 ```
 
