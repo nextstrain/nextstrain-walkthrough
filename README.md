@@ -61,7 +61,7 @@ By the end of this workshop, you will know how to:
   - identify the necessary input files to perform a genomic epidemiology analysis with Nextstrain
   - run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextalign to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
   - inspect and understand the contents of Nextstrain toolkit command outputs
-  - visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using Auspice or [auspice.us](http://auspice.us)
+  - visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using Auspice or [auspice.us](https://auspice.us)
 
 ## Introduction
 
@@ -90,8 +90,8 @@ The process for creating a Nextstrain analysis generally requires the following 
      - Here, we will focus on how to run commands and understand their inputs and outputs.
   3. Visualize and interpret analysis outputs.
      - Run a local [Auspice](https://docs.nextstrain.org/projects/auspice/en/stable/) server.
-     - Drag-and-drop onto [auspice.us](http://auspice.us).
-     - Upload data to GitHub or Nextstrain Groups and view through [nextstrain.org](http://nextstrain.org).
+     - Drag-and-drop onto [auspice.us](https://auspice.us).
+     - Upload data to GitHub or Nextstrain Groups and view through [nextstrain.org](https://nextstrain.org).
 
 In this tutorial, you will learn how to analyze previously curated data and then visualize and interpret the resulting annotated phylogenetic tree.
 
@@ -393,7 +393,7 @@ augur export v2 \
   --output auspice/ncov.json
 ```
 
-To visualize the final tree, we can drag its JSON file on to the [auspice.us](http://auspice.us) landing page.
+To visualize the final tree, we can drag its JSON file on to the [auspice.us](https://auspice.us) landing page.
 
 If you have Auspice installed locally, you can run a local Auspice server with the following command.
 
@@ -558,4 +558,4 @@ augur export v2 \
   --panels tree map entropy frequencies
 ```
 
-To visualize the final tree and frequencies, we can drag these files together onto the [auspice.us](http://auspice.us) landing page. You can also run `auspice view` locally to see the tree and frequencies.
+To visualize the final tree and frequencies, we can drag these files together onto the [auspice.us](https://auspice.us) landing page. You can also run `auspice view` locally to see the tree and frequencies.
