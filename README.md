@@ -2,15 +2,41 @@
 
 ## Prerequisites
 
-If you want to use a preconfigured environment, you only need to launch one of the following virtual machine providers.
+Set up an environment using one of the following options:
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextstrain/veme-2022)
-[![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/veme-2022/HEAD)
+1. GitHub Codespaces
 
-If you want to use your local environment on your personal computer, you will need to:
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextstrain/veme-2022)
 
-  - [Install Nextstrain](https://docs.nextstrain.org/en/latest/install.html) on your computer or launch one of the virtual machine providers listed above.
-  - Clone this repository with `git clone https://github.com/nextstrain/veme-2022.git` and change into the resulting `veme-2022` directory.
+    This launches a preconfigured environment in your web browser or Visual Studio Code.
+
+    > ℹ️ Note:
+    > A GitHub account is required. There is a [monthly free quota](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) which varies by account plan.
+    > This tutorial is expected to use less than 4 core hours and 1 GB.
+    > Storage use against quota is negligible if the codespace is deleted after you complete the tutorial.
+
+2. Binder
+
+    [![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/veme-2022/HEAD)
+
+    This launches a preconfigured environment in your web browser.
+    Use this if you prefer not to use GitHub Codespaces or install things locally.
+
+    > ⚠️ Warning:
+    > This option does not support proper usage of the local Auspice server.
+    > Use [auspice.us](https://auspice.us) in place of those steps.
+
+3. Local installation
+
+    > [Install Nextstrain](https://docs.nextstrain.org/en/latest/install.html) +
+    > [clone this repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+    Use this if you prefer to install software locally on your computer.
+
+    > ⚠️ Warning:
+    > For live workshops, this is not recommend since it takes time to set up and environments may vary across computers.
+    > You may need to use `nextstrain shell` to run some commands in this tutorial.
+    > If you face any issues during the workshop, please use one of the other options.
 
 ## Scope
 
@@ -367,7 +393,7 @@ augur export v2 \
   --output auspice/ncov.json
 ```
 
-To visualize the final tree, we can drag its JSON file on to the [auspice.us](http://auspice.us) landing page. If you are working from a Binder interface, download the JSON file in the `auspice/` directory to your computer, open a file explorer/finder window, and drag the file on to the auspice.us interface.
+To visualize the final tree, we can drag its JSON file on to the [auspice.us](http://auspice.us) landing page.
 
 If you have Auspice installed locally, you can run a local Auspice server with the following command.
 
@@ -532,4 +558,4 @@ augur export v2 \
   --panels tree map entropy frequencies
 ```
 
-To visualize the final tree and frequencies, we can drag these files together onto the [auspice.us](http://auspice.us) landing page. If you are working from a Binder interface, download all of the files in the `auspice/` directory to your computer, open a file explorer/finder window, and drag all of the files on to the auspice.us interface. You can also run `auspice view` locally to see the tree and frequencies.
+To visualize the final tree and frequencies, we can drag these files together onto the [auspice.us](http://auspice.us) landing page. You can also run `auspice view` locally to see the tree and frequencies.
