@@ -173,7 +173,7 @@ augur filter -h
 
 Use `augur filter` to eliminate low-quality or undesired data based on genome sequence or metadata attributes.
 In the following command, we filter by sequence length.
-We also force the inclusion of reference records that we will need for rooting the tree later.
+We also force the inclusion of the reference genome that we will need for rooting the tree later.
 
 ``` bash
 augur filter \
@@ -197,7 +197,7 @@ After filtering for high-quality data, we often still have more samples than we 
 Effective subsampling is a research topic of its own, but most commonly we try to sample evenly through time and space.
 This approach attempts to account for sampling bias.
 The following command uses `augur filter` again, this time to select at most 30 samples evenly across all countries and year/month combinations in the metadata.
-We also force-include the reference sequence required to root the tree later on.
+We also force-include the reference genome required to root the tree later on.
 
 ``` bash
 augur filter \
@@ -259,7 +259,7 @@ We will add that in the next steps.
 
 With the alignment, the divergence tree, and the dates per sample from the metadata, we can infer a time-scaled phylogeny with estimated dates for internal nodes of the tree.
 `augur refine` is a lightweight wrapper around [TreeTime](https://github.com/neherlab/treetime).
-The following command roots the tree with a specific reference genome that we force-included earlier.
+The following command roots the tree with the reference genome that we force-included earlier.
 
 ``` bash
 augur refine \
