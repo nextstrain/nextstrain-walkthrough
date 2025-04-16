@@ -550,7 +550,7 @@ Looking at the frequencies panel, which genotypes appear to be most successful r
   - [Work through our guide to genomic epidemiology of SARS-CoV-2](https://docs.nextstrain.org/projects/ncov/en/latest/index.html).
   - [Learn how to convert a series of shell commands into a Nextstrain workflow with Snakemake](https://github.com/huddlej/example-nextstrain-workflow).
   - [Learn how to communicate results from genomic epidemiology analyses through Nextstrain Narratives](https://www.youtube.com/playlist?list=PLsFWZl6SQqWxN9SkbgdjU8sylIfhZNDiW).
-  - Get involved by [contributing to Nextstrain](https://docs.nextstrain.org/en/latest/guides/contribute/index.html), [asking questions on our discussion site](https://discussion.nextstrain.org/), or [reaching out by email at hello@nextstrain.org](hello@nextstrain.org).
+  - Get involved by [asking questions on our discussion site](https://discussion.nextstrain.org/), [reaching out by email at hello@nextstrain.org](hello@nextstrain.org), or [contributing to Nextstrain](https://docs.nextstrain.org/en/latest/guides/contribute/index.html).
   - Ask about joining Nextstrain office hours at [hello@nextstrain.org](hello@nextstrain.org).
 
 ## Additional exercises
