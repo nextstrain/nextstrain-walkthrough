@@ -6,7 +6,7 @@ Set up an environment using one of the following options:
 
 1. GitHub Codespaces
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextstrain/veme-2022)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextstrain/nextstrain-walkthrough)
 
     This launches a preconfigured environment in your web browser or Visual Studio Code.
 
@@ -17,7 +17,7 @@ Set up an environment using one of the following options:
 
 2. Binder
 
-    [![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/veme-2022/HEAD)
+    [![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/nextstrain-walkthrough/HEAD)
 
     This launches a preconfigured environment in your web browser.
     Use this if you prefer not to use GitHub Codespaces or install things locally.
@@ -439,7 +439,7 @@ Note the differences from the previous Auspice dataset:
 
 > Note that while the following instructions describe a specific Nextstrain analysis, the same general steps will apply to any pathogen tree.
 
-See also, [the example SARS-CoV-2 tree produced by the analysis above](https://nextstrain.org/community/nextstrain/veme-2022/example-ncov).
+See also, [the example SARS-CoV-2 tree produced by the analysis above](https://nextstrain.org/community/nextstrain/nextstrain-walkthrough/example-ncov).
 
 ### Review the Auspice layout
 
