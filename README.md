@@ -149,7 +149,8 @@ To understand the evolutionary and epidemiological history of these samples, we 
 
 ### Select high-quality data
 
-We start by using [Augur](https://docs.nextstrain.org/projects/augur/en/stable/index.html) to select a representative set of high-quality samples.
+[Augur](https://docs.nextstrain.org/projects/augur/en/stable/index.html) is a toolkit that we will use to prepare files for visualization.
+We start by using `augur filter` to select a representative set of high-quality samples.
 We determine the quality of the original data based on attributes of both the genome sequences and metadata.
 
 Create a results directory to store our intermediate analysis outputs.
