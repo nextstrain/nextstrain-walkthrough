@@ -1,12 +1,7 @@
 name: nextstrain
 channels:
-  - conda-forge
+  - nextstrain
   - bioconda
-  - defaults
+  - conda-forge
 dependencies:
-  - mafft=7.505
-  - iqtree=2.2.0_beta
-  - nextalign=2.14.0
-  - python>=3.10*
-  - pip:
-    - nextstrain-augur==22.1.0
+  - nextstrain-base

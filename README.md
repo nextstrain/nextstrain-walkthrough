@@ -2,15 +2,41 @@
 
 ## Prerequisites
 
-If you want to use a preconfigured environment, you only need to launch one of the following virtual machine providers.
+Set up an environment using one of the following options:
 
-[![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/blab/veme-2022/HEAD)
-[![Open with Gitpod](https://img.shields.io/badge/Open%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/blab/veme-2022.git)
+1. GitHub Codespaces
 
-If you want to use your local environment on your personal computer, you will need to:
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/nextstrain/veme-2022)
 
-  - [Install Nextstrain](https://docs.nextstrain.org/en/latest/install.html) on your computer or launch one of the virtual machine providers listed above.
-  - Clone this repository with `git clone https://github.com/blab/veme-2022.git` and change into the resulting `veme-2022` directory.
+    This launches a preconfigured environment in your web browser or Visual Studio Code.
+
+    > ℹ️ Note:
+    > A GitHub account is required. There is a [monthly free quota](https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) which varies by account plan.
+    > This tutorial is expected to use less than 4 core hours and 1 GB.
+    > Storage use against quota is negligible if the codespace is deleted after you complete the tutorial.
+
+2. Binder
+
+    [![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/veme-2022/HEAD)
+
+    This launches a preconfigured environment in your web browser.
+    Use this if you prefer not to use GitHub Codespaces or install things locally.
+
+    > ⚠️ Warning:
+    > This option does not support proper usage of the local Auspice server.
+    > Use [auspice.us](https://auspice.us) in place of those steps.
+
+3. Local installation
+
+    > [Install Nextstrain](https://docs.nextstrain.org/en/latest/install.html) +
+    > [clone this repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+    Use this if you prefer to install software locally on your computer.
+
+    > ⚠️ Warning:
+    > For live workshops, this is not recommend since it takes time to set up and environments may vary across computers.
+    > You may need to use `nextstrain shell` to run some commands in this tutorial.
+    > If you face any issues during the workshop, please use one of the other options.
 
 ## Scope
 
@@ -33,9 +59,9 @@ These topics are critical but outside the scope of a short workshop on genomic e
 By the end of this workshop, you will know how to:
 
   - identify the necessary input files to perform a genomic epidemiology analysis with Nextstrain
-  - run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextalign to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
+  - run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextclade to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
   - inspect and understand the contents of Nextstrain toolkit command outputs
-  - visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using Auspice or [auspice.us](http://auspice.us)
+  - visualize and interpret a phylogenetic tree produced by Nextstrain’s bioinformatics toolkit using Auspice or [auspice.us](https://auspice.us)
 
 ## Introduction
 
@@ -64,8 +90,8 @@ The process for creating a Nextstrain analysis generally requires the following 
      - Here, we will focus on how to run commands and understand their inputs and outputs.
   3. Visualize and interpret analysis outputs.
      - Run a local [Auspice](https://docs.nextstrain.org/projects/auspice/en/stable/) server.
-     - Drag-and-drop onto [auspice.us](http://auspice.us).
-     - Upload data to GitHub or Nextstrain Groups and view through [nextstrain.org](http://nextstrain.org).
+     - Drag-and-drop onto [auspice.us](https://auspice.us).
+     - Upload data to GitHub or Nextstrain Groups and view through [nextstrain.org](https://nextstrain.org).
 
 In this tutorial, you will learn how to analyze previously curated data and then visualize and interpret the resulting annotated phylogenetic tree.
 
@@ -187,12 +213,13 @@ augur filter \
 
 Next, we align the genome sequences of our subsampled data to a single reference genome.
 This alignment ensures that all genomes have the same coordinates during tree inference.
-Nextalign can produce both an alignment of the nucleotide sequences and amino acid alignments for all genes defined in a given gene map.
+Nextclade can produce both an alignment of the nucleotide sequences and amino acid alignments for all genes defined in a given gene map.
 It can also produce comma-separated values (CSV) outputs including insertions relative to the reference genome and error messages per input genome.
 The following command just performs the simplest alignment of the nucleotide sequences.
 
 ``` bash
-nextalign run \
+nextclade run \
+  --in-order \
   --input-ref data/reference.fasta \
   --output-fasta results/aligned.fasta \
   results/subsampled_sequences.fasta
@@ -204,16 +231,28 @@ Infer a divergence tree from the alignment.
 Augur's tree subcommand is a lightweight wrapper around existing tree builders, providing some standardization of the input alignment and output across tools.
 We use IQ-TREE by default, but other options include FastTree and RAxML.
 
+> Note: All tree builders used by Augur are maximum-likelihood (ML) tools, enabling the "real-time" part of Nextstrain’s mission at the expense of the posterior and more sophisticated models available through Bayesian methods.
+> The ML approach enables rapid prototyping to identify genomes to include in a more complex, longer-running Bayesian analysis.
+
 ``` bash
 augur tree \
   --alignment results/aligned.fasta \
   --output results/tree_raw.nwk
 ```
 
-We can view this tree and its metadata in [auspice.us](https://auspice.us/) or FigTree.
+We can view the divergence tree by loading `results/tree_raw.nwk` in [auspice.us](https://auspice.us/).
 
-> Note: All tree builders used by Augur are maximum-likelihood (ML) tools, enabling the "real-time" part of Nextstrain’s mission at the expense of the posterior and more sophisticated models available through Bayesian methods.
-> The ML approach enables rapid prototyping to identify genomes to include in a more complex, longer-running Bayesian analysis.
+You should see a view like this:
+
+![tree_raw.nwk in auspice.us](images/tree_raw.jpeg)
+
+Let's familiarize ourselves with the Auspice interface.
+The main view is an interactive phylogenetic tree.
+To the left are controls for the main view.
+There is not much going on with this particular visualization, because Newick files lack the additional data that powers most of the Auspice interface.
+We will add that in the next steps.
+
+<!-- NOTE: we could add metadata by drag/drop of the TSV file into the Auspice view of tree_raw.nwk, but we will soon show the proper way to expose metadata with `augur export`. -->
 
 ### Infer a time tree
 
@@ -232,7 +271,7 @@ augur refine \
   --output-node-data results/branch_lengths.json
 ```
 
-This is the first part of the workflow that produces a "node data JSON" output file.
+This is the first step that produces a "node data JSON" output file.
 We will see more of these in subsequent steps.
 The node data JSON file is a Nextstrain-specific file standard that stores key/value attributes per node in the phylogenetic tree.
 Example attributes include clock-scale branch lengths, inferred collection dates, and inferred nucleotide sequences for ancestral nodes.
@@ -243,7 +282,7 @@ less results/branch_lengths.json
 ```
 
 We now have enough information to export the initial time tree and its metadata for visualization in Auspice.
-This export step requires at least a Newick tree and a node data JSON file to produce an "Auspice JSON" file, another Nextstrain-specific file standard that represents a tree, its metadata, its node data, and details about how these data should all be visualized in Auspice.
+This export step requires at least a Newick tree and a node data JSON file to produce `nextstrain-walkthrough.json`, another Nextstrain-specific file standard that represents an Auspice dataset: the tree, its metadata, its node data, and details about how these data should all be visualized in Auspice.
 
 ``` bash
 mkdir -p auspice/
@@ -252,8 +291,27 @@ augur export v2 \
   --node-data results/branch_lengths.json \
   --metadata results/subsampled_metadata.tsv \
   --color-by-metadata country \
-  --output auspice/ncov.json
+  --output auspice/nextstrain-walkthrough.json
 ```
+
+> [!TIP] You can view Auspice datasets in auspice.us, but we will use a local Auspice server for the rest of this tutorial.
+
+We will view the tree using a local Auspice server.
+Open a new terminal and start the server using the command below.
+
+``` bash
+auspice view --datasetDir auspice/
+```
+
+Then, navigate to http://localhost:4000 and open the **nextstrain-walkthrough** dataset.
+You should see a view like this:
+
+![time tree in local Auspice server](images/tree_refined.jpeg)
+
+Note the differences from the Auspice view of `results/tree_raw.nwk`:
+
+- A time tree is shown. You can toggle between time and divergence in the control panel.
+- Location data has been added.
 
 We can learn a lot from the tree and its metadata, but we don’t have any details about mutations on the tree, ancestral states, distances between sequences, clades, frequencies of clades through time, etc.
 The next set of commands will produce these annotations on the tree in the format of additional node data JSONs.
@@ -363,24 +421,25 @@ augur export v2 \
   --metadata results/subsampled_metadata.tsv \
   --color-by-metadata country \
   --geo-resolutions country \
-  --output auspice/ncov.json
+  --output auspice/nextstrain-walkthrough.json
 ```
 
-To visualize the final tree, we can drag its JSON file on to the [auspice.us](http://auspice.us) landing page. If you are working from a Binder interface, download the JSON file in the `auspice/` directory to your computer, open a file explorer/finder window, and drag the file on to the auspice.us interface.
+View the tree with additional metadata in Auspice. It should look something like below.
 
-If you are working from a GitPod interface or have Auspice installed locally, you can run a local Auspice server with the following command.
+![time tree with additional info in local Auspice server](images/tree_with_node_data.jpeg)
 
-``` bash
-auspice view --datasetDir auspice/
-```
+Note the differences from the previous Auspice dataset:
 
-Then, you can view the trees by navigating to http://localhost:4000 or the corresponding address from GitPod.
+- Clade labels have been added.
+- Country has been inferred for internal nodes.
+- Hovering over tips and branches shows mutation information.
+- There are two new panels, **Map** and **Entropy**.
 
 ## Visualize and interpret a SARS-CoV-2 phylogeny
 
 > Note that while the following instructions describe a specific Nextstrain analysis, the same general steps will apply to any pathogen tree.
 
-See also, [the example SARS-CoV-2 tree produced by the analysis above](https://nextstrain.org/community/blab/veme-2022/example-ncov).
+See also, [the example SARS-CoV-2 tree produced by the analysis above](https://nextstrain.org/community/nextstrain/veme-2022/example-ncov).
 
 ### Review the Auspice layout
 
@@ -510,7 +569,7 @@ augur frequencies \
   --pivot-interval-units weeks \
   --narrow-bandwidth 0.041 \
   --proportion-wide 0.0 \
-  --output auspice/ncov_tip-frequencies.json
+  --output auspice/nextstrain-walkthrough_tip-frequencies.json
 ```
 
 The output JSON file is an Auspice "[sidecar JSON](https://docs.nextstrain.org/en/latest/reference/data-formats.html)" that Auspice knows how to load for a given main Auspice JSON based on its filename.
@@ -527,8 +586,13 @@ augur export v2 \
   --metadata results/subsampled_metadata.tsv \
   --color-by-metadata country \
   --geo-resolutions country \
-  --output auspice/ncov.json \
+  --output auspice/nextstrain-walkthrough.json \
   --panels tree map entropy frequencies
 ```
 
-To visualize the final tree and frequencies, we can drag these files together onto the [auspice.us](http://auspice.us) landing page. If you are working from a Binder interface, download all of the files in the `auspice/` directory to your computer, open a file explorer/finder window, and drag all of the files on to the auspice.us interface. You can also run `auspice view` locally to see the tree and frequencies.
+View the final tree with frequencies in Auspice.
+If you are using [auspice.us](https://auspice.us), drag both the `auspice/nextstrain-walkthrough.json` and `auspice/nextstrain-walkthrough_tip-frequencies.json` files onto the page.
+
+A new panel is available, **Frequencies**. Color by **Clade** to see the dominance of clades over time.
+
+![dataset with frequencies in local Auspice server](images/tree_with_frequencies.jpeg)

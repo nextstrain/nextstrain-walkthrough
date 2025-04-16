@@ -126,30 +126,149 @@ clade	gene	site	alt
 21J (Delta)	nuc	11332	G
 21J (Delta)	nuc	19220	T
 
-21K (Omicron)	clade	21M (Omicron)
+21K (Omicron)	clade	21M
 21K (Omicron)	nuc	15240	T
 21K (Omicron)	nuc	23202	A
 21K (Omicron)	nuc	23525	T
 21K (Omicron)	nuc	27259	C
 
-21L (Omicron)	clade	21M (Omicron)
+21L (Omicron)	clade	21M
 21L (Omicron)	nuc	21618	T
 21L (Omicron)	nuc	22775	A
 
-21M (Omicron)	clade	20B
-21M (Omicron)	nuc	18163	G
-21M (Omicron)	nuc	23599	G
+21M	clade	20B
+21M	nuc	18163	G
+21M	nuc	23599	G
 
-22A (Omicron)	clade	21L (Omicron)
-22A (Omicron)	nuc	12160	A
-22A (Omicron)	nuc	9866	C
-22A (Omicron)	nuc	27788	T
+22A	clade	21L (Omicron)
+22A	nuc	12160	A
+22A	nuc	9866	C
+22A	nuc	28724	T
 
-22B (Omicron)	clade	21L (Omicron)
-22B (Omicron)	nuc	12160	A
-22B (Omicron)	nuc	9866	C
-22B (Omicron)	nuc	27259	A
+22B	clade	21L (Omicron)
+22B	nuc	12160	A
+22B	nuc	9866	C
+22B	nuc	27259	A
 
-22C (Omicron)	clade	21L (Omicron)
-22C (Omicron)	nuc	22917	A
-22C (Omicron)	nuc	23673	T
+22C	clade	21L (Omicron)
+22C	nuc	22917	A
+22C	nuc	23673	T
+
+22D	clade	21L (Omicron)
+22D	nuc	3796	T
+22D	nuc	26275	G
+
+22E	clade	22B
+22E	nuc	14257	C
+22E	nuc	16935	A
+22E	nuc	28312	T
+22E	nuc	22942	A
+
+22F	clade	21L (Omicron)
+22F	nuc	15461	A
+22F	nuc	17859	C
+22F	nuc	23019	C
+22F	nuc	26275	G
+
+23A	clade	22F
+23A	nuc	22317	T
+23A	nuc	23018	C
+23A	nuc	27915	T
+
+23B	clade	22F
+23B	nuc	12730	A
+23B	nuc	14856	G
+23B	nuc	18703	T
+23B	nuc	28447	G
+
+23C	clade	22D
+23C	nuc	3857	A
+23C	nuc	20741	G
+23C	nuc	22599	C
+23C	nuc	22917	G
+23C	nuc	22893	C
+23C	nuc	23019	C
+
+23D	clade	22F
+23D	nuc	5720	A
+23D	nuc	12789	T
+23D	nuc	28297	C
+
+23E	clade	22F
+23E	nuc	4234	T
+23E	nuc	23123	T
+23E	nuc	27431	T
+
+23F	clade	23D
+23F	nuc	2334	T
+23F	nuc	9693	T
+23F	nuc	21718	T
+23F	nuc	22480	T
+23F	nuc	22930	A
+
+23G	clade	23A
+23G	nuc	8737	C
+23G	nuc	25045	G
+23G	nuc	28005	T
+
+23H	clade	23F
+23H	nuc	13627	A
+23H	nuc	22927	T
+
+23I	clade	21L (Omicron)
+23I	nuc	897	A
+23I	nuc	15756	A
+23I	nuc	28958	A
+
+24A	clade	23I
+24A	nuc	11727	A
+24A	nuc	22926	C
+24A	nuc	27810	C
+
+24B	clade	24A
+24B	nuc	7113	T
+24B	nuc	17334	T
+24B	nuc	22928	C
+24B	nuc	24872	T
+
+24C	clade	24B
+24C	nuc	23039	G
+
+24D	clade	21L (Omicron)
+24D	nuc	1170	T
+24D	nuc	11572	T
+24D	nuc	12473	T
+24D	nuc	15939	C
+
+24E	clade	24C
+24E	nuc	13121	T
+24E	nuc	15372	T
+24E	nuc	19722	G
+
+24F	clade	24A
+24F	nuc	18657	T
+24F	nuc	19716	T
+24F	nuc	21627	A
+24F	nuc	21738	C
+24F	nuc	22928	C
+24F	nuc	23039	G
+24F	nuc	24872	T
+
+24G	clade	24B
+24G	nuc	22599	C
+24G	nuc	25593	T
+
+24H	clade	24A
+24H	nuc	16600	C
+24H	nuc	12892	A
+
+24I	clade	24A
+24I	nuc	936	T
+24I	nuc	7393	T
+24I	nuc	22995	C
+
+25A	clade	24B
+25A	nuc	4999	T
+25A	nuc	22110	A
+25A	nuc	22132	T
+25A	nuc	25925	T
