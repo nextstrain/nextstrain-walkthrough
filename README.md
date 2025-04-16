@@ -171,7 +171,7 @@ Look at the help text for a specific Augur subcommand.
 augur filter -h
 ```
 
-Filter the data to eliminate low-quality or undesired data based on genome sequence or metadata attributes.
+Use `augur filter` to eliminate low-quality or undesired data based on genome sequence or metadata attributes.
 In the following command, we filter by sequence length.
 We also force the inclusion of reference records that we will need for rooting the tree later.
 
@@ -196,7 +196,7 @@ ls -l results/
 After filtering for high-quality data, we often still have more samples than we can reasonably use to infer a phylogeny and we need to subsample our data.
 Effective subsampling is a research topic of its own, but most commonly we try to sample evenly through time and space.
 This approach attempts to account for sampling bias.
-The following command uses Augur's filter subcommand again, this time to select at most 30 samples evenly across all countries and year/month combinations in the metadata.
+The following command uses `augur filter` again, this time to select at most 30 samples evenly across all countries and year/month combinations in the metadata.
 We also force-include the reference sequence required to root the tree later on.
 
 ``` bash
@@ -229,7 +229,7 @@ nextclade run \
 ### Infer a divergence tree
 
 Infer a divergence tree from the alignment.
-Augur's tree subcommand is a lightweight wrapper around existing tree builders, providing some standardization of the input alignment and output across tools.
+`augur tree` is a lightweight wrapper around existing tree builders, providing some standardization of the input alignment and output across tools.
 We use IQ-TREE by default, but other options include FastTree and RAxML.
 
 > Note: All tree builders used by Augur are maximum-likelihood (ML) tools, enabling the "real-time" part of Nextstrain’s mission at the expense of the posterior and more sophisticated models available through Bayesian methods.
@@ -258,7 +258,7 @@ We will add that in the next steps.
 ### Infer a time tree
 
 With the alignment, the divergence tree, and the dates per sample from the metadata, we can infer a time-scaled phylogeny with estimated dates for internal nodes of the tree.
-Augur's refine subcommand is a lightweight wrapper around [TreeTime](https://github.com/neherlab/treetime).
+`augur refine` is a lightweight wrapper around [TreeTime](https://github.com/neherlab/treetime).
 The following command roots the tree with a specific reference genome that we force-included earlier.
 
 ``` bash
@@ -386,7 +386,7 @@ less results/clades.json
 ### Infer ancestral states for discrete traits
 
 In a similar way that we infer the ancestral nucleotides for each node in the tree at each position of the alignment, we can infer the ancestral states for other discrete traits available in the metadata.
-The `augur traits` subcommand is a lightweight wrapper around TreeTime that performs discrete trait analysis (DTA) on columns in the given metadata.
+`augur traits` is a lightweight wrapper around TreeTime that performs discrete trait analysis (DTA) on columns in the given metadata.
 The command assigns the most likely ancestral states to named internal nodes and tips missing values for those states (i.e., samples for which metadata columns contain "?" values) and optionally produces confidence values per possible state.
 The following command infers ancestral country with confidence values.
 
@@ -556,7 +556,7 @@ Looking at the frequencies panel, which genotypes appear to be most successful r
 ### Estimate frequencies of data through time
 
 In addition to the annotated tree, we often want to know how frequencies of mutations, clades, or other traits change over time.
-We can estimate these frequencies with the `augur frequencies` subcommand.
+We can estimate these frequencies with `augur frequencies`.
 This subcommand assigns a KDE kernel to each tip in the given tree centered on the collection date for the tip in the given metadata.
 The command sums and normalizes the KDE values across all tips and at each timepoint ("pivot") such that frequencies equal 1 at all timepoints.
 The following command estimates frequencies from the subsampled data at weekly timepoints with a KDE bandwidth of approximately 2 weeks (measured in years).
