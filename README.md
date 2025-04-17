@@ -149,7 +149,8 @@ To understand the evolutionary and epidemiological history of these samples, we 
 
 ### Select high-quality data
 
-We start by using [Augur](https://docs.nextstrain.org/projects/augur/en/stable/index.html) to select a representative set of high-quality samples.
+[Augur](https://docs.nextstrain.org/projects/augur/en/stable/index.html) is a toolkit that we will use to prepare files for visualization.
+We start by using `augur filter` to select a representative set of high-quality samples.
 We determine the quality of the original data based on attributes of both the genome sequences and metadata.
 
 Create a results directory to store our intermediate analysis outputs.
@@ -170,9 +171,9 @@ Look at the help text for a specific Augur subcommand.
 augur filter -h
 ```
 
-Filter the data to eliminate low-quality or undesired data based on genome sequence or metadata attributes.
+Use `augur filter` to eliminate low-quality or undesired data based on genome sequence or metadata attributes.
 In the following command, we filter by sequence length.
-We also force the inclusion of reference records that we will need for rooting the tree later.
+We also force the inclusion of the reference genome that we will need for rooting the tree later.
 
 ``` bash
 augur filter \
@@ -195,8 +196,8 @@ ls -l results/
 After filtering for high-quality data, we often still have more samples than we can reasonably use to infer a phylogeny and we need to subsample our data.
 Effective subsampling is a research topic of its own, but most commonly we try to sample evenly through time and space.
 This approach attempts to account for sampling bias.
-The following command uses Augur's filter subcommand again, this time to select at most 30 samples evenly across all countries and year/month combinations in the metadata.
-We also force-include the reference sequence required to root the tree later on.
+The following command uses `augur filter` again, this time to select at most 30 samples evenly across all countries and year/month combinations in the metadata.
+We also force-include the reference genome required to root the tree later on.
 
 ``` bash
 augur filter \
@@ -228,7 +229,7 @@ nextclade run \
 ### Infer a divergence tree
 
 Infer a divergence tree from the alignment.
-Augur's tree subcommand is a lightweight wrapper around existing tree builders, providing some standardization of the input alignment and output across tools.
+`augur tree` is a lightweight wrapper around existing tree builders, providing some standardization of the input alignment and output across tools.
 We use IQ-TREE by default, but other options include FastTree and RAxML.
 
 > Note: All tree builders used by Augur are maximum-likelihood (ML) tools, enabling the "real-time" part of Nextstrain’s mission at the expense of the posterior and more sophisticated models available through Bayesian methods.
@@ -250,15 +251,17 @@ Let's familiarize ourselves with the Auspice interface.
 The main view is an interactive phylogenetic tree.
 To the left are controls for the main view.
 There is not much going on with this particular visualization, because Newick files lack the additional data that powers most of the Auspice interface.
-We will add that in the next steps.
 
-<!-- NOTE: we could add metadata by drag/drop of the TSV file into the Auspice view of tree_raw.nwk, but we will soon show the proper way to expose metadata with `augur export`. -->
+Drag and drop the `results/subsampled_metadata.tsv` onto the webpage.
+This enables options to color by and filter on metadata attributes such as country.
+It is an ad-hoc method that only applies to the tips of the tree, and goes away when you refresh the page.
+Later steps will provide metadata directly with the tree, which enables more visualization features.
 
 ### Infer a time tree
 
 With the alignment, the divergence tree, and the dates per sample from the metadata, we can infer a time-scaled phylogeny with estimated dates for internal nodes of the tree.
-Augur's refine subcommand is a lightweight wrapper around [TreeTime](https://github.com/neherlab/treetime).
-The following command roots the tree with a specific reference genome that we force-included earlier.
+`augur refine` is a lightweight wrapper around [TreeTime](https://github.com/neherlab/treetime).
+The following command roots the tree with the reference genome that we force-included earlier.
 
 ``` bash
 augur refine \
@@ -385,7 +388,7 @@ less results/clades.json
 ### Infer ancestral states for discrete traits
 
 In a similar way that we infer the ancestral nucleotides for each node in the tree at each position of the alignment, we can infer the ancestral states for other discrete traits available in the metadata.
-The `augur traits` subcommand is a lightweight wrapper around TreeTime that performs discrete trait analysis (DTA) on columns in the given metadata.
+`augur traits` is a lightweight wrapper around TreeTime that performs discrete trait analysis (DTA) on columns in the given metadata.
 The command assigns the most likely ancestral states to named internal nodes and tips missing values for those states (i.e., samples for which metadata columns contain "?" values) and optionally produces confidence values per possible state.
 The following command infers ancestral country with confidence values.
 
@@ -547,7 +550,7 @@ Looking at the frequencies panel, which genotypes appear to be most successful r
   - [Work through our guide to genomic epidemiology of SARS-CoV-2](https://docs.nextstrain.org/projects/ncov/en/latest/index.html).
   - [Learn how to convert a series of shell commands into a Nextstrain workflow with Snakemake](https://github.com/huddlej/example-nextstrain-workflow).
   - [Learn how to communicate results from genomic epidemiology analyses through Nextstrain Narratives](https://www.youtube.com/playlist?list=PLsFWZl6SQqWxN9SkbgdjU8sylIfhZNDiW).
-  - Get involved by [contributing to Nextstrain](https://docs.nextstrain.org/en/latest/guides/contribute/index.html), [asking questions on our discussion site](https://discussion.nextstrain.org/), or [reaching out by email at hello@nextstrain.org](hello@nextstrain.org).
+  - Get involved by [asking questions on our discussion site](https://discussion.nextstrain.org/), [reaching out by email at hello@nextstrain.org](hello@nextstrain.org), or [contributing to Nextstrain](https://docs.nextstrain.org/en/latest/guides/contribute/index.html).
   - Ask about joining Nextstrain office hours at [hello@nextstrain.org](hello@nextstrain.org).
 
 ## Additional exercises
@@ -555,7 +558,7 @@ Looking at the frequencies panel, which genotypes appear to be most successful r
 ### Estimate frequencies of data through time
 
 In addition to the annotated tree, we often want to know how frequencies of mutations, clades, or other traits change over time.
-We can estimate these frequencies with the `augur frequencies` subcommand.
+We can estimate these frequencies with `augur frequencies`.
 This subcommand assigns a KDE kernel to each tip in the given tree centered on the collection date for the tip in the given metadata.
 The command sums and normalizes the KDE values across all tips and at each timepoint ("pivot") such that frequencies equal 1 at all timepoints.
 The following command estimates frequencies from the subsampled data at weekly timepoints with a KDE bandwidth of approximately 2 weeks (measured in years).
