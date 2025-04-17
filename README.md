@@ -251,9 +251,11 @@ Let's familiarize ourselves with the Auspice interface.
 The main view is an interactive phylogenetic tree.
 To the left are controls for the main view.
 There is not much going on with this particular visualization, because Newick files lack the additional data that powers most of the Auspice interface.
-We will add that in the next steps.
 
-<!-- NOTE: we could add metadata by drag/drop of the TSV file into the Auspice view of tree_raw.nwk, but we will soon show the proper way to expose metadata with `augur export`. -->
+Drag and drop the `results/subsampled_metadata.tsv` onto the webpage.
+This enables options to color by and filter on metadata attributes such as country.
+It is an ad-hoc method that only applies to the tips of the tree, and goes away when you refresh the page.
+Later steps will provide metadata directly with the tree, which enables more visualization features.
 
 ### Infer a time tree
 
