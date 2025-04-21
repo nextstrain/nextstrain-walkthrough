@@ -554,6 +554,29 @@ Looking at the frequencies panel, which genotypes appear to be most successful r
 
 ## Additional exercises
 
+### Analyze sequences with Nextclade
+
+> [!TIP]
+> For a more in-depth guide, visit [Nextclade Web documentation](https://docs.nextstrain.org/projects/nextclade/en/stable/user/nextclade-web/index.html).
+
+The Nextclade CLI that we used briefly at the beginning of the tutorial has a graphical counterpart that runs entirely in your web browser.
+
+Visit the [Nextclade website](https://clades.nextstrain.org) and load `results/subsampled_sequences.fasta` as the input file.
+A SARS-CoV-2 reference dataset will be automatically suggested.
+Click **Run**.
+
+Nextclade analyzes each sequence, showing results as they are completed in a tabular format.
+Some values can be hovered to show detailed information.
+
+Click **Tree** at the top to go to the next page.
+A simplified Auspice view is shown with just the Tree and Entropy panels.
+Note that the tree is backed by a predefined Nextclade reference dataset and your input sequences, pre-filtered to the latter.
+
+The final **Export** page has options to download various output files.
+
+> [!NOTE]
+> There are only a handful of Nextclade datasets available, but the Nextstrain team and other scientific community members are actively expanding the selection.
+
 ### Estimate frequencies of data through time
 
 In addition to the annotated tree, we often want to know how frequencies of mutations, clades, or other traits change over time.
