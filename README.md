@@ -40,23 +40,23 @@ Set up an environment using one of the following options:
 
 ## Scope
 
-This workshop focuses on the following topics to introduce the details of Nextstrain's genomic epidemiology tools:
+This tutorial focuses on the following topics to introduce the details of Nextstrain's genomic epidemiology tools:
 
  - specific file formats
  - command line instructions required to analyze a specific pathogen
  - instructions to visualize and interpret that pathogen's phylogeny in Auspice
 
-This workshop does not include discussions about:
+This tutorial does not include discussions about:
 
  - installation of tools
  - data curation
  - workflow design
 
-These topics are critical but outside the scope of a short workshop on genomic epidemiology.
+These topics are critical but outside the scope of a short tutorial on genomic epidemiology.
 
 ## Learning objectives
 
-By the end of this workshop, you will know how to:
+By the end of this tutorial, you will know how to:
 
   - identify the necessary input files to perform a genomic epidemiology analysis with Nextstrain
   - run commands in Nextstrain’s bioinformatics toolkit including Augur and Nextclade to convert input genomes and metadata into an annotated phylogenetic time tree that can be visualized locally or online
