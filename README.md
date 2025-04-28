@@ -432,7 +432,7 @@ Note the differences from the previous Auspice dataset:
 
 ## Next steps
 
-  - Work through additional exercises listed below
+  - Work through additional exercises listed below.
   - [Work through our guide to genomic epidemiology of SARS-CoV-2](https://docs.nextstrain.org/projects/ncov/en/latest/index.html).
   - [Learn how to convert a series of shell commands into a Nextstrain workflow with Snakemake](https://github.com/huddlej/example-nextstrain-workflow).
   - [Learn how to communicate results from genomic epidemiology analyses through Nextstrain Narratives](https://www.youtube.com/playlist?list=PLsFWZl6SQqWxN9SkbgdjU8sylIfhZNDiW).
