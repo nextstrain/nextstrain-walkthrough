@@ -432,6 +432,7 @@ Note the differences from the previous Auspice dataset:
 
 ## Next steps
 
+  - [Stop](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace) or [delete](https://docs.github.com/en/codespaces/developing-in-a-codespace/deleting-a-codespace) your GitHub codespace.
   - Work through additional exercises listed below.
   - [Work through our guide to genomic epidemiology of SARS-CoV-2](https://docs.nextstrain.org/projects/ncov/en/latest/index.html).
   - [Learn how to convert a series of shell commands into a Nextstrain workflow with Snakemake](https://github.com/huddlej/example-nextstrain-workflow).
