@@ -210,6 +210,10 @@ augur filter \
   --output-sequences results/subsampled_sequences.fasta
 ```
 
+> [!WARNING]
+> This small sample is not likely to be representative of the broader population.
+> Therefore, any inference based on this data should be treated with caution.
+
 ### Align genomes
 
 Next, we align the genome sequences of our subsampled data to a single reference genome.
