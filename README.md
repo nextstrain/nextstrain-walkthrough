@@ -306,6 +306,8 @@ Note the differences from the Auspice view of `results/tree_raw.nwk`:
 
 - A time tree is shown. You can toggle between time and divergence in the control panel.
 - Location data has been added.
+- A date range filter is available in the sidebar.
+- A molecular clock view is available.
 
 We can learn a lot from the tree and its metadata, but we don’t have any details about mutations on the tree, ancestral states, distances between sequences, clades, frequencies of clades through time, etc.
 The next set of commands will produce these annotations on the tree in the format of additional node data JSONs.
