@@ -15,7 +15,18 @@ This launches a preconfigured environment in your web browser or Visual Studio C
 > This tutorial is expected to use less than 4 core hours and 1 GB.
 > Storage use against quota is negligible if the codespace is deleted after you complete the tutorial.
 
-### 2. Binder
+### 2. GitPod
+
+[![Open with Gitpod](https://img.shields.io/badge/Open%20with-Gitpod-908a85?logo=gitpod)](https://gitpod.io/#https://github.com/nextstrain/nextstrain-walkthrough.git)
+
+This launches a preconfigured environment in your web browser.
+Use this if you prefer not to use GitHub Codespaces or install things locally.
+
+> [!NOTE]
+> A GitHub account is required. There is a [monthly free quota](https://www.gitpod.io/docs/classic/billing/overview#free-tier).
+> This tutorial is expected to use less than 20 credits (2 hours).
+
+### 3. Binder
 
 [![Open with Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nextstrain/nextstrain-walkthrough/HEAD)
 
@@ -26,7 +37,7 @@ Use this if you prefer not to use GitHub Codespaces or install things locally.
 > There are some [restrictions](https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html#resources-available).
 > Notably, sessions are shut down after 10 minutes of inactivity.
 
-### 3. Local installation
+### 4. Local installation
 
 > [Install Nextstrain](https://docs.nextstrain.org/en/latest/install.html) +
 > [clone this repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
