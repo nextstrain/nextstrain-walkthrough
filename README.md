@@ -295,19 +295,10 @@ augur export v2 \
   --output auspice/nextstrain-walkthrough.json
 ```
 
-> [!TIP] You can view Auspice datasets in auspice.us, but we will use a local Auspice server for the rest of this tutorial.
+View the new tree by loading `auspice/nextstrain-walkthrough.json` in [auspice.us](https://auspice.us).
+It should look something like below.
 
-We will view the tree using a local Auspice server.
-Open a new terminal and start the server using the command below.
-
-``` bash
-auspice view --datasetDir auspice/
-```
-
-Then, navigate to http://localhost:4000 and open the **nextstrain-walkthrough** dataset.
-You should see a view like this:
-
-![time tree in local Auspice server](images/tree_refined.jpeg)
+![time tree in auspice.us](images/tree_refined.jpeg)
 
 Note the differences from the Auspice view of `results/tree_raw.nwk`:
 
@@ -425,9 +416,10 @@ augur export v2 \
   --output auspice/nextstrain-walkthrough.json
 ```
 
-View the tree with additional metadata in Auspice. It should look something like below.
+View the updated tree by loading `auspice/nextstrain-walkthrough.json` in [auspice.us](https://auspice.us).
+It should look something like below.
 
-![time tree with additional info in local Auspice server](images/tree_with_node_data.jpeg)
+![time tree with additional info in auspice.us](images/tree_with_node_data.jpeg)
 
 Note the differences from the previous Auspice dataset:
 
@@ -614,9 +606,7 @@ augur export v2 \
   --panels tree map entropy frequencies
 ```
 
-View the final tree with frequencies in Auspice.
-If you are using [auspice.us](https://auspice.us), drag both the `auspice/nextstrain-walkthrough.json` and `auspice/nextstrain-walkthrough_tip-frequencies.json` files onto the page.
-
+View the updated tree by loading **both** `auspice/nextstrain-walkthrough.json` and `auspice/nextstrain-walkthrough_tip-frequencies.json` in [auspice.us](https://auspice.us).
 A new panel is available, **Frequencies**. Color by **Clade** to see the dominance of clades over time.
 
-![dataset with frequencies in local Auspice server](images/tree_with_frequencies.jpeg)
+![dataset with frequencies in auspice.us](images/tree_with_frequencies.jpeg)
