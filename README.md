@@ -392,13 +392,13 @@ less results/clades.json
 In a similar way that we infer the ancestral nucleotides for each node in the tree at each position of the alignment, we can infer the ancestral states for other discrete traits available in the metadata.
 `augur traits` is a lightweight wrapper around TreeTime that performs discrete trait analysis (DTA) on columns in the given metadata.
 The command assigns the most likely ancestral states to named internal nodes and tips missing values for those states (i.e., samples for which metadata columns contain "?" values) and optionally produces confidence values per possible state.
-The following command infers ancestral country with confidence values.
+The following command infers ancestral country and region with confidence values.
 
 ``` bash
 augur traits \
   --tree results/tree.nwk \
   --metadata results/subsampled_metadata.tsv \
-  --columns country \
+  --columns country region \
   --confidence \
   --output-node-data results/traits.json
 ```
@@ -424,8 +424,8 @@ augur export v2 \
               results/clades.json \
               results/traits.json \
   --metadata results/subsampled_metadata.tsv \
-  --color-by-metadata country \
-  --geo-resolutions country \
+  --color-by-metadata country region \
+  --geo-resolutions country region \
   --output auspice/nextstrain-walkthrough.json
 ```
 
@@ -437,7 +437,7 @@ It should look something like below.
 Note the differences from the previous Auspice dataset:
 
 - Clade labels have been added.
-- Country has been inferred for internal nodes.
+- Country and region have been inferred for internal nodes.
 - Hovering over tips and branches shows mutation information.
 - There are two new panels, **Map** and **Entropy**.
 
@@ -508,8 +508,8 @@ augur export v2 \
               results/clades.json \
               results/traits.json \
   --metadata results/subsampled_metadata.tsv \
-  --color-by-metadata country \
-  --geo-resolutions country \
+  --color-by-metadata country region \
+  --geo-resolutions country region \
   --output auspice/nextstrain-walkthrough.json \
   --panels tree map entropy frequencies
 ```
