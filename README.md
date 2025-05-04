@@ -182,13 +182,11 @@ augur filter -h
 
 Use `augur filter` to eliminate low-quality or undesired data based on genome sequence or metadata attributes.
 In the following command, we filter by sequence length.
-We also force the inclusion of the reference genome that we will need for rooting the tree later.
 
 ``` bash
 augur filter \
   --metadata data/metadata.tsv \
   --sequences data/sequences.fasta \
-  --include config/include.txt \
   --min-length 27000 \
   --output-metadata results/filtered_metadata.tsv \
   --output-sequences results/filtered_sequences.fasta
